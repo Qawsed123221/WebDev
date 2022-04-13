@@ -1,0 +1,318 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <title>Homepage</title>
+    <style>
+        body{
+            background-color: rgb(240, 240, 240);
+            font-family: Verdana, sans-serif; margin:0
+        }
+        h5{
+            padding: 10px;
+        }
+        .images{
+            padding: 10px;
+            background-color: rgb(230, 230, 230);
+            line-height: 60px;
+        }
+        .images{
+            border-radius: 40px;
+        }
+        #introBox{
+            border-radius: 20px;
+            margin: 10px auto;
+        }
+        .card{
+            border-radius:20px;
+        }
+        .card-title{
+            color: black;
+        }
+
+        * {box-sizing: border-box}
+        .mySlides {
+            display: none
+        }
+        img {
+            vertical-align: middle;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right:0;
+            border-radius: 3px 0 0 3px;
+            
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+
+    </style>
+</head>
+<body>
+<!--navbar-->
+    <div class="navbar-fixed">
+        <nav class="nav-wrapper white ">
+        <div class="container ">
+            <a href="#" class="brand-logo light-green-text text-darken-4">Site Title</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down ">
+                <li><a href="LandingPage.html" class="light-green-text text-darken-4">Homepage</a></li>
+                <li><a href="JoinCadets.html" class="light-green-text text-darken-4">Join Cadets</a></li>
+                <li><a href="CadetMap.html" class="light-green-text text-darken-4">Corps Near You</a></li>
+                <li><a href="AllEntries.html" class="light-green-text text-darken-4">All Entries</a></li>
+                <li><a href="AboutMe.html" class="light-green-text text-darken-4">About Me</a></li>
+                <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" onclick="RandomButton()">Random Page</a></li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+ <!-- for when the page gets shrinked-->
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="LandingPage.html">Homepage</a></li>
+        <li><a href="JoinCadets.html">Join Cadets</a></li>
+        <li><a href="CadetMap.html">Corps Near You</a></li>
+        <li><a href="AllEntries.html">All Entries</a></li>
+        <li><a href="AboutMe.html">About Me</a></li>
+        <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" onclick="RandomButton()">Random Page</a></li>
+    </ul>
+
+
+    <div class="slideshow-container s12">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="images/GroupShot.jpeg" style="width:100%">
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="images/AFVWideShot.jpeg" style="width:100%">
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="images/CarFrames.jpeg" style="width:100%">
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next right-align" onclick="plusSlides(1)">❯</a>
+        
+    </div>
+    <br>
+        
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+                
+
+    <div class="container center-align white z-depth-2" id="introBox">
+        <h4>Sgt Marcotte's Guide to Cadets</h4>
+        <p>
+            Hello everyone, Sgt Marcotte here. I made this website as a guide for all the aspiring cadets hoping to see what it's like, 
+            and for all the current cadets looking to stand out in their corps, or just learn a few things. I've been a cadet for nearly 4 years,
+            so I have a fair bit of experience within the program. Hope you all enjoy!
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s6" class="images">
+                <img src="images/Uniform.png">
+            </div>
+            <div class="col s6 right-align" class="images">
+                <img src="images/beret.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="center-align"><h2>Basic Information About Cadets</h2></div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col s4">
+                <div class="card light-green lighten-3">
+                    <div class="card-content">
+                        <a class="card-title">Uniforms</a>
+                        <hr>
+                        <ul>
+                            <li><a href="Beret.html">Beret</a></li>
+                            <li><a href="#">Rank Slipons</a></li>
+                            <li><a href="#">Boots</a></li>
+                            <li><a href="#">Ironing and Pressing</a></li>
+                            <li><a href="#">Other Common Problems</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s4">
+                <div class="card light-green lighten-3">
+                    <div class="card-content">
+                        <a class="card-title">Common Lessons</a>
+                        <hr>
+                        <ul>
+                            <li><a href="#">Ranks</a></li>
+                            <li><a href="#">Drill Turns</a></li>
+                            <li><a href="#">How to March</a></li>
+                            <li><a href="#">Marksmanship</a></li>
+                            <li><a href="#">Leadership</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s4">
+                <div class="card light-green lighten-3">
+                    <div class="card-content">
+                        <a class="card-title" >Etiquette</a>
+                        <hr>
+                        <ul>
+                            <li><a href="#">Your Officers</a></li>
+                            <li><a href="#">Cadets Online</a></li>
+                            <li><a href="#">Saluting</a></li>
+                            <li><a href="#">Sir and Ma'am</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+  
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+    //for when the page gets shrinked
+        $(document).ready(function(){
+        $('.sidenav').sidenav();
+        });
+        function RandomButton() {
+            var arr = ["LandingPage.html", "CadetMap.html", "AllEntries.html", "AboutMe.html", "JoinCadets.html", "Beret.html", "SubcategoryPageTemplate.html"];
+            var value = arr[Math.floor(Math.random() * arr.length)];
+            alert("Would navigate to : " + value);
+            window.location = value;     
+        }
+
+
+
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }    
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
+</body>
+</html>

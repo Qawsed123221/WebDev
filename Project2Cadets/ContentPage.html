@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <title>Homepage</title>
+    <style>
+        body{
+            background-color: rgb(240, 240, 240);
+        }
+        h5{
+            padding: 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif
+        }
+        .images{
+            background-color: rgb(230, 230, 230);
+            line-height: 60px;
+        }
+        .images{
+            border-radius: 40px;
+        }
+        .card-title{
+            color: black;
+        }
+        hr{
+            padding-top: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+            background-color: #c5e1a5;
+        }
+    </style>
+</head>
+<body>
+<!--navbar-->
+    <div class="navbar-fixed">
+        <nav class="nav-wrapper white ">
+        <div class="container ">
+            <a href="#" class="brand-logo light-green-text text-darken-4">Site Title</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down ">
+                <li><a href="LandingPage.html" class="light-green-text text-darken-4">Homepage</a></li>
+                <li><a href="JoinCadets.html" class="light-green-text text-darken-4">Join Cadets</a></li>
+                <li><a href="CadetMap.html" class="light-green-text text-darken-4">Corps Near You</a></li>
+                <li><a href="AllEntries.html" class="light-green-text text-darken-4">All Entries</a></li>
+                <li><a href="AboutMe.html" class="light-green-text text-darken-4">About Me</a></li>
+                <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" onclick="RandomButton()">Random Page</a></li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+ <!-- for when the page gets shrinked-->
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="LandingPage.html">Homepage</a></li>
+        <li><a href="JoinCadets.html">Join Cadets</a></li>
+        <li><a href="CadetMap.html">Corps Near You</a></li>
+        <li><a href="AllEntries.html">All Entries</a></li>
+        <li><a href="AboutMe.html">About Me</a></li>
+        <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" onclick="RandomButton()">Random Page</a></li>
+    </ul>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col s8">
+                <p>Content</p>
+            </div>
+
+            <div class="col s4 right-align">
+                <div class="card center-align">
+                    <div class="card-image">
+                        <img src="images/beret.png" alt="">
+                    </div>
+                    <hr>
+                    <div class="card-content">
+                        <a class="card-title">Fact Header</a>
+                        <p>Facts</p>
+                    </div>
+                    <hr>
+                    <div class="card-content">
+                        <p>Different facts</p>
+                    </div>
+                    <hr>
+                    <div class="card-content">
+                        <p>Different facts</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+  
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+        //for when the page gets shrinked
+        $(document).ready(function(){
+        $('.sidenav').sidenav();
+        });
+
+        //random page js
+        function RandomButton() {
+            var arr = ["LandingPage.html", "CadetMap.html", "AllEntries.html", "AboutMe.html", "JoinCadets.html", "Beret.html", "SubcategoryPageTemplate.html"];
+            var value = arr[Math.floor(Math.random() * arr.length)];
+            alert("Would navigate to : " + value);
+            window.location = value;     
+        }
+    </script>
+</body>
+</html>

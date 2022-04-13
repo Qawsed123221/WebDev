@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <title>Homepage</title>
+    <style>
+        body{
+            background-color: rgb(240, 240, 240);
+        }
+        h5{
+            padding: 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif
+        }
+        .images{
+            padding: 10px;
+            background-color: rgb(230, 230, 230);
+            line-height: 60px;
+        }
+        .images{
+            border-radius: 40px;
+        }
+        #introBox{
+            border-radius: 20px;
+            margin: 10px auto;
+        }
+        .card{
+            border-radius:20px;
+        }
+        .card-title{
+            color: black;
+        }
+        .map{
+            margin-right:  10px;
+        }
+    </style>
+</head>
+<body>
+<!--navbar-->
+    <div class="navbar-fixed">
+        <nav class="nav-wrapper white ">
+        <div class="container ">
+            <a href="#" class="brand-logo light-green-text text-darken-4">Site Title</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down ">
+                <li><a href="LandingPage.html" class="light-green-text text-darken-4">Homepage</a></li>
+                <li><a href="#" class="light-green-text text-darken-4">Join Cadets</a></li>
+                <li><a href="CadetMap.html" class="light-green-text text-darken-4">Corps Near You</a></li>
+                <li><a href="AllEntries.html" class="light-green-text text-darken-4">All Entries</a></li>
+                <li><a href="#" class="light-green-text text-darken-4">About Me</a></li>
+                <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" 
+                onclick="RandomButton()">Random Page</a></li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+ <!-- for when the page gets shrinked-->
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="LandingPage.html">Homepage</a></li>
+        <li><a href="#">Join Cadets</a></li>
+        <li><a href="CadetMap.html">Corps Near You</a></li>
+        <li><a href="AllEntries.html">All Entries</a></li>
+        <li><a href="#">About Me</a></li>
+        <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" onclick="RandomButton()">Random Page</a></li>
+    </ul>
+
+    <iframe 
+    class="map"
+    width="100%" 
+    height="90%" 
+    style="border:0" 
+    loading="lazy" 
+    allowfullscreen 
+    referrerpolicy="no-referrer-when-downgrade" id="googleMap" src=""></iframe>
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+        //navbar shrinking js
+        $(document).ready(function(){
+        $('.sidenav').sidenav();
+        });
+
+        //map js
+        var userCity = window.prompt("Enter your city: ");
+        var googleApi = "https://www.google.com/maps/embed/v1/search?key=AIzaSyB4SASNSGaVf7fkXWpHF73GmJKPGRi66Aw&zoom=9&q=cadets+in+"+userCity
+        document.getElementById("googleMap").src = googleApi;
+        
+        //random page js
+        function RandomButton() {
+            var pages = ["LandingPage.html", "CadetMap.html", "AllEntries.html", "AboutMe.html", "JoinCadets.html", "Beret.html", "SubcategoryPageTemplate.html"];
+            var pageNumber = pages[Math.floor(Math.random() * pages.length)];
+            alert("Would navigate to : " + pageNumber);
+            window.location = pageNumber;     
+        }
+    </script>
+</body>
+</html>
+
