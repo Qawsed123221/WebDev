@@ -1,0 +1,133 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <title>Subcategory</title>
+    <style>
+        
+        body{
+            background-color: rgb(240, 240, 240);
+        }
+        h5{
+            padding: 10px;
+        }
+        #images{
+            padding: 10px;
+            background-color: rgb(230, 230, 230);
+            border: 1px solid black ;
+            line-height: 60px;
+        }
+        #images{
+            margin: 40px auto;
+        }
+        #introBox{
+            border-radius: 20px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar-fixed">
+        <nav class="nav-wrapper white ">
+        <div class="container ">
+            <a href="#" class="brand-logo light-green-text text-darken-4">Site Title</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down ">
+                <li><a href="LandingPage.html" class="light-green-text text-darken-4">Homepage</a></li>
+                <li><a href="JoinCadets.html" class="light-green-text text-darken-4">Join Cadets</a></li>
+                <li><a href="CadetMap.html" class="light-green-text text-darken-4">Corps Near You</a></li>
+                <li><a href="AllEntries.html" class="light-green-text text-darken-4">All Entries</a></li>
+                <li><a href="AboutMe.html" class="light-green-text text-darken-4">About Me</a></li>
+                <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" onclick="RandomButton()">Random Page</a></li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+ <!-- for when the page gets shrinked-->
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="LandingPage.html">Homepage</a></li>
+        <li><a href="JoinCadets.html">Join Cadets</a></li>
+        <li><a href="CadetMap.html">Corps Near You</a></li>
+        <li><a href="AllEntries.html">All Entries</a></li>
+        <li><a href="AboutMe.html">About Me</a></li>
+        <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" onclick="RandomButton()">Random Page</a></li>
+    </ul>
+
+    <div class="container white center-align z-depth-2" id="introBox">
+        <div class="center-align"><h2>Subcategory of website</h2></div>
+        <div class="center-align"><p>Lorem ipsum text</p></div>
+    </div>
+
+<!--Cards containing subcategories (Curry is just filler idk)-->
+    <div class="container">
+        <div class="row">
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/Uniform.png" alt="">
+                    </div>
+                    <div class="card-content">
+                        <a class="card-title" href="#">Page Title</a>
+                        <p>Page Description</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/Uniform.png" alt="">
+                    </div>
+                    <div class="card-content">
+                        <a class="card-title" href="#">Page Title</a>
+                        <p>Page Description</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/Uniform.png" alt="">
+                    </div>
+                    <div class="card-content">
+                        <a class="card-title" href="#">Page Title</a>
+                        <p>Page Description</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+    //for when the page gets shrinked
+        $(document).ready(function(){
+        $('.sidenav').sidenav();
+        });
+        function RandomButton() {
+            var arr = ["LandingPage.html", "CadetMap.html", "AllEntries.html", "AboutMe.html", "JoinCadets.html", "Beret.html", "SubcategoryPageTemplate.html"];
+            var value = arr[Math.floor(Math.random() * arr.length)];
+            alert("Would navigate to : " + value);
+            window.location = value;     
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <title>Homepage</title>
+    <link rel="icon" type="x-icon" href="icon.ico">
+
+    <style>
+        body{
+            background-color: rgb(240, 240, 240);
+        }
+        h5{
+            padding: 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif
+        }
+        .images{
+            padding: 10px;
+            background-color: rgb(230, 230, 230);
+            line-height: 60px;
+        }
+        .images{
+            border-radius: 40px;
+        }
+        #introBox{
+            border-radius: 20px;
+            margin: 10px auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .card{
+            border-radius:20px;
+        }
+        .card-title{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <!--navbar-->
+    <div class="navbar-fixed">
+        <nav class="nav-wrapper white ">
+        <div class="container ">
+            <a href="#" class="brand-logo light-green-text text-darken-4">Site Title</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down ">
+                <li><a href="LandingPage.html" class="light-green-text text-darken-4">Homepage</a></li>
+                <li><a href="JoinCadets.html" class="light-green-text text-darken-4">Join Cadets</a></li>
+                <li><a href="CadetMap.html" class="light-green-text text-darken-4">Corps Near You</a></li>
+                <li><a href="AllEntries.html" class="light-green-text text-darken-4">All Entries</a></li>
+                <li><a href="AboutMe.html" class="light-green-text text-darken-4">About Me</a></li>
+                <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" onclick="RandomButton()">Random Page</a></li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+ <!-- for when the page gets shrinked-->
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="LandingPage.html">Homepage</a></li>
+        <li><a href="JoinCadets.html">Join Cadets</a></li>
+        <li><a href="CadetMap.html">Corps Near You</a></li>
+        <li><a href="AllEntries.html">All Entries</a></li>
+        <li><a href="AboutMe.html">About Me</a></li>
+        <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" onclick="RandomButton()">Random Page</a></li>
+    </ul>
+    <h2>Looking for a specific article?</h2>
+    <p>Type in the search bar below to find the article. If it's not there you can click the button below to send me an email about what content you think should be added, and I'll get back to you as soon as possible</p>
+
+
+    <div>
+        <div class="container center-align white z-depth-2" id="introBox">
+            <h2>Menu</h2>
+            <input type="text" id="mySearch" onkeyup="SearchBar()" placeholder="Search.." title="Type in a category">
+            <ul id="myMenu">
+                <li><a href="LandingPage.html">Homepage</a></li>
+                <li><a href="CadetMap.html">Cadet Map</a></li>
+                <li><a href="AllEntries.html">All Entries</a></li>
+                <li><a href="Beret.html">Beret</a></li>
+                <li><a href="AboutMe.html">About Me</a></li>
+                <li><a href="JoinCadets.html">Join Cadets</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+    //for when the page gets shrinked
+        $(document).ready(function(){
+        $('.sidenav').sidenav();
+        }); 
+    //random page button code
+        function RandomButton() {
+            var arr = ["LandingPage.html", "CadetMap.html", "AllEntries.html", "AboutMe.html", "JoinCadets.html", "Beret.html", "SubcategoryPageTemplate.html"];
+            var value = arr[Math.floor(Math.random() * arr.length)];
+            alert("Would navigate to : " + value);
+            window.location = value;     
+        }
+
+    //Searchbar code
+        function SearchBar() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("mySearch");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myMenu");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } 
+                else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

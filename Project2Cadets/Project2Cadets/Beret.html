@@ -1,0 +1,382 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <title>Homepage</title>
+    <link rel="icon" type="x-icon" href="icon.ico">
+    <style>
+        body{
+            background-color: rgb(240, 240, 240);
+        }
+        h5{
+            padding: 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif
+        }
+        .images{
+            background-color: rgb(230, 230, 230);
+            line-height: 60px;
+        }
+        .images{
+            border-radius: 40px;
+        }
+        .card-title{
+            color: black;
+        }
+        hr{
+            padding-top: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+            background-color: #c5e1a5;
+        }
+        @import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
+
+        #QuizStuff{
+            font-size: 20px;
+            font-family: 'Work Sans', sans-serif;
+            color: #333;
+            font-weight: 300;
+            text-align: center;
+        }
+        h1{
+            font-weight: 300;
+            margin: 0px;
+            padding: 10px;
+            font-size: 20px;
+            background-color: #444;
+            color: #fff;
+        }
+        .question{
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        .answers {
+            margin-bottom: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+        .answers label{
+            display: block;
+            margin-bottom: 10px;
+        }
+        button{
+            font-family: 'Work Sans', sans-serif;
+            font-size: 22px;
+            background-color: #279;
+            color: #fff;
+            border: 0px;
+            border-radius: 3px;
+            padding: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover{
+            background-color: #38a;
+        }
+        .slide{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .active-slide{
+            opacity: 1;
+            z-index: 2;
+        }
+        .quiz-container{
+            position: relative;
+            height: 600px;
+            margin-top: 100px;
+            padding-top: 60px;
+        }
+        [type="radio"]:not(:checked), [type="radio"]:checked {
+        position: relative; 
+        opacity: 1; 
+        }
+        #results{
+            margin-top: 100px;
+        }
+        #QuestionHolder{
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+<!--navbar-->
+    <div class="navbar-fixed">
+        <nav class="nav-wrapper white ">
+        <div class="container ">
+            <a href="#" class="brand-logo light-green-text text-darken-4">Site Title</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down ">
+                <li><a href="LandingPage.html" class="light-green-text text-darken-4">Homepage</a></li>
+                <li><a href="JoinCadets.html" class="light-green-text text-darken-4">Join Cadets</a></li>
+                <li><a href="CadetMap.html" class="light-green-text text-darken-4">Corps Near You</a></li>
+                <li><a href="AllEntries.html" class="light-green-text text-darken-4">All Entries</a></li>
+                <li><a href="AboutMe.html" class="light-green-text text-darken-4">About Me</a></li>
+                <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" onclick="RandomButton()">Random Page</a></li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+ <!-- for when the page gets shrinked-->
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="LandingPage.html">Homepage</a></li>
+        <li><a href="JoinCadets.html">Join Cadets</a></li>
+        <li><a href="CadetMap.html">Corps Near You</a></li>
+        <li><a href="AllEntries.html">All Entries</a></li>
+        <li><a href="AboutMe.html">About Me</a></li>
+        <li><a href="#" class="btn white light-green-text text-darken-4 waves-effect waves-light" class="RandomButton" onclick="RandomButton()">Random Page</a></li>
+    </ul>
+
+    
+    <div class="container">
+        <div class="row">
+            <h3 class="col s8">Content</h3>
+            <div class="col s4 right-align RightCard" >
+                <div class="card center-align">
+                    <div class="card-image">
+                        <img src="images/beret.png" alt="">
+                    </div>
+                    <hr>
+                    <div class="card-content">
+                        <a class="card-title">Fact Header</a>
+                        <p>Facts</p>
+                    </div>
+                    <hr>
+                    <div class="card-content">
+                        <p>Different facts</p>
+                    </div>
+                    <hr>
+                    <div class="card-content">
+                        <p>Different facts</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="quiz-container white" id="QuizStuff">
+                    <div id="quiz"></div>
+                    <div class="answers"></div>
+                    <div id="results"></div>
+                    <button class="waves-effect waves-light" id="previous">Previous Question</button>
+                    <button class="waves-effect waves-light" id="next">Next Question</button>
+                    <button class="waves-effect waves-light" id="submit">Submit Quiz</button>
+                    <div id="results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    
+  
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+        //for when the page gets shrinked
+        $(document).ready(function(){
+        $('.sidenav').sidenav();
+        });
+        function RandomButton() {
+            var arr = ["LandingPage.html", "CadetMap.html", "AllEntries.html", "AboutMe.html", "JoinCadets.html", "Beret.html", "SubcategoryPageTemplate.html"];
+            var value = arr[Math.floor(Math.random() * arr.length)];
+            alert("Would navigate to : " + value);
+            window.location = value;     
+        }
+        (function BigQuiz(){
+            // Functions
+            function buildQuiz(){
+                // variable to store the HTML output
+                const output = [];
+
+                // for each question...
+                myQuestions.forEach(
+                (currentQuestion, questionNumber) => {
+
+                    // variable to store the list of possible answers
+                    const answers = [];
+
+                    // and for each available answer...
+                    for(letter in currentQuestion.answers){
+
+                        // ...add an HTML radio button
+                        answers.push(
+                            //Change this to change text
+                            `<label id="QuestionHolder" class="black-text">
+                            <input type="radio" name="question${questionNumber}" value="${letter}">
+                            ${letter} :
+                            ${currentQuestion.answers[letter]}
+                            </label>`
+                        );
+                    }
+
+                        // add this question and its answers to the output
+                    output.push(
+                    `<div class="slide">
+                        <div class="question"> ${currentQuestion.question} </div>
+                        <div class="answers"> ${answers.join("")} </div>
+                    </div>`
+                    );
+                }
+                );
+
+                // finally combine our output list into one string of HTML and put it on the page
+                quizContainer.innerHTML = output.join('');
+            }
+
+            function showResults(){
+
+                // gather answer containers from our quiz
+                const answerContainers = quizContainer.querySelectorAll('.answers');
+
+                // keep track of user's answers
+                let numCorrect = 0;
+
+                // for each question...
+                myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+                // find selected answer
+                const answerContainer = answerContainers[questionNumber];
+                const selector = `input[name=question${questionNumber}]:checked`;
+                const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+                // if answer is correct
+                if(userAnswer === currentQuestion.correctAnswer){
+                    // add to the number of correct answers
+                    numCorrect++;
+
+                    // color the answers green
+                    answerContainers[questionNumber].style.color = 'lightgreen';
+
+
+                }
+                // if answer is wrong or blank
+                else{
+                    // color the answers red
+                    answerContainers[questionNumber].style.color = 'red';
+
+                    
+
+                }
+                });
+
+                // show number of correct answers out of total
+                resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+            }
+
+            function showSlide(n) {
+                slides[currentSlide].classList.remove('active-slide');
+                slides[n].classList.add('active-slide');
+                currentSlide = n;
+                if(currentSlide === 0){
+                previousButton.style.display = 'none';
+                }
+                else{
+                previousButton.style.display = 'inline-block';
+                }
+                if(currentSlide === slides.length-1){
+                nextButton.style.display = 'none';
+                submitButton.style.display = 'inline-block';
+                }
+                else{
+                nextButton.style.display = 'inline-block';
+                submitButton.style.display = 'none';
+                }
+            }
+
+            function showNextSlide() {
+                showSlide(currentSlide + 1);
+            }
+
+            function showPreviousSlide() {
+                showSlide(currentSlide - 1);
+            }
+
+            // Variables
+            const quizContainer = document.getElementById('quiz');
+            const resultsContainer = document.getElementById('results');
+            const submitButton = document.getElementById('submit');
+            const myQuestions = [
+                {
+                question: "Who invented JavaScript?",
+                answers: {
+                    a: "Douglas Crockford",
+                    b: "Sheryl Sandberg",
+                    c: "Brendan Eich"
+                },
+                correctAnswer: "c"
+                },
+                {
+                question: "Which one of these is a JavaScript package manager?",
+                answers: {
+                    a: "Node.js",
+                    b: "TypeScript",
+                    c: "npm"
+                },
+                correctAnswer: "c"
+                },
+                {
+                question: "Which tool can you use to ensure code quality?",
+                answers: {
+                    a: "Angular",
+                    b: "jQuery",
+                    c: "RequireJS",
+                    d: "ESLint"
+                },
+                correctAnswer: "d"
+                },
+                {
+                question: "test 4th question?",
+                answers: {
+                    a: "Angular",
+                    b: "jQuery",
+                    c: "RequireJS",
+                    d: "ESLint"
+                },
+                correctAnswer: "d"
+                }
+            ];
+
+                // Kick things off
+                buildQuiz();
+
+                // Pagination
+                const previousButton = document.getElementById("previous");
+                const nextButton = document.getElementById("next");
+                const slides = document.querySelectorAll(".slide");
+                let currentSlide = 0;
+
+                // Show the first slide
+                showSlide(currentSlide);
+
+                // Event listeners
+                submitButton.addEventListener('click', showResults);
+                previousButton.addEventListener("click", showPreviousSlide);
+                nextButton.addEventListener("click", showNextSlide);
+        })();
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
